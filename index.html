@@ -29,7 +29,7 @@
       align-items: center;
       text-align: center;
 
-      background-image: url("paginas/fondo.avif");
+      background-image: url("fondo.avif");
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -189,7 +189,7 @@
     <canvas id="hearts"></canvas>
 
   <div class="container">
-    <img src="paginas/gatito.gif" alt="cat" class="cat-gift">
+    <img src="gatito.gif" alt="cat" class="cat-gift">
 
     <div class="content-move">
       <h1>Hello</h1>
@@ -215,7 +215,7 @@
     resize(); window.onresize = resize;
     const hearts = [];
     const heartImg = new Image();
-    heartImg.src = "paginas/red-heartf.png";
+    heartImg.src = "red-heartf.png";
     function Heart() {
       this.x = Math.random() * W;
       this.y = Math.random() * H - H;
@@ -247,5 +247,6 @@
     draw();
   </script>
 </body>
+
 
 </html>
