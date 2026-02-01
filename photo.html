@@ -5,141 +5,138 @@
     <meta charset="UTF-8">
     <title>tercera Pantalla</title>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Satisfy&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Gochi+Hand&family=Satisfy&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Gochi+Hand&family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');
 
-    body {
-        margin: 0;
-        font-family: "Mansalva", sans-serif;
-        background-image: url("fondo.avif");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-    }
-
-    .split {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .imagenes {
-        display: flex;
-        width: 100%;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        gap: 0;
-        flex-wrap: wrap; /* permite que las imágenes bajen en móviles */
-    }
-
-    .imagenes img {
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    .imagenes img:not(.img-centro) {
-        width: 42vw;
-        height: 42vw; /* fuerza que sean cuadradas */
-    }
-
-    .img-centro {
-        width: 28vw;
-        height: 28vw; /* cuadrado */
-        margin: 0 -5vw;
-        z-index: 2;
-    }
-
-    .botones {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 20px;
-    }
-
-    .btn-container {
-        display: flex;
-        justify-content: center;
-        margin-top: -50px;
-    }
-
-    .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 10px 22px;
-        min-width: 165px;
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        border-radius: 35px;
-        cursor: pointer;
-        transition: 0.3s;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        background-color: #d3d3d3;
-        border: 3px solid #800020;
-        color: #000000;
-        text-decoration: none;
-    }
-
-    .linea-roja {
-        width: 90%;
-        max-width: 2000px;
-        height: 4px;
-        border-bottom: 3px dashed #800020;
-        margin: 6px auto 0;
-        margin-top: -20px;
-    }
-
-    .song {
-        font-size: 4.5rem;
-        color: #800020;
-        margin-top: -10px;
-        font-family: "Mansalva", sans-serif;
-        letter-spacing: 3px;
-        text-align: center;
-    }
-
-    /* --- Responsive para móviles --- */
-    @media (max-width: 768px) {
-        .imagenes {
-            flex-direction: column;
-            height: auto;
-            gap: 15px;
+        body {
+            font-family: 'Satisfy', cursive;
+            font-family: "Gochi Hand", cursive;
+            font-family: "Chelsea Market", system-ui;
+            font-family: "Patrick Hand SC", cursive;
+            font-family: "Mansalva", sans-serif;
         }
 
+
+        body {
+            margin: 0;
+            background-image: url("fondo.avif");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .split {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .imagenes {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            /* las imágenes ocupan toda la pantalla */
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+        }
+
+
         .imagenes img {
-            width: 80vw;
-            height: 80vw; /* mantiene cuadradas */
-            margin: 0 auto;
+            height: 100vh;
+            object-fit: contain;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: -60px;
+            /* ajusta qué tan arriba lo quieres */
+        }
+
+        .imagenes img:not(.img-centro) {
+            width: 42vw;
         }
 
         .img-centro {
-            width: 90vw;
-            height: 90vw;
-            margin: 0 auto;
+            width: 28vw;
+            /* tamaño del centro */
+            margin: 0 -5vw;
+            /* 🔑 cierra los espacios */
+            z-index: 2;
         }
 
-        .song {
-            font-size: 2.5rem;
+        .botones {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .content-move {
+            transform: translateY(-40px);
+            /* 🔼 sube textos + botones */
+        }
+
+        .xoxo-special {
+            background-color: #d3d3d3;
+            color: #000000;
+            border: 3px solid #800020;
+            font-family: "Shantell Sans", cursive;
         }
 
         .btn {
-            font-size: 0.9rem;
-            min-width: 140px;
-            padding: 8px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            padding: 10px 22px;
+            min-width: 165px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+
+            border-radius: 35px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:link,
+        .btn:visited {
+            color: #000000;
+            text-decoration: none;
+        }
+
+
+
+        .btn-container {
+            margin-top: -50px;
+            /* separa el botón de la línea */
         }
 
         .linea-roja {
-            width: 90%;
+            width: 2000px;
+            height: 4px;
+            border-bottom: 3px dashed #800020;
+            margin: 6px auto 0;
+            margin-top: -20px;
         }
-    }
-</style>
+
+        .song {
+            font-size: 4.5rem;
+            color: #800020;
+            margin-top: -10px;
+            font-family: "Mansalva", sans-serif;
+            letter-spacing: 3px;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -158,6 +155,4 @@
         <div class="btn-container">
             <a href="yes.html" class="btn xoxo-special">RETURN</a>
         </div>
-
     </div>
-
