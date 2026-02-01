@@ -5,162 +5,110 @@
     <meta charset="UTF-8">
     <title>tercera Pantalla</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Satisfy&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Gochi+Hand&family=Satisfy&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');
 
-        body {
-            font-family: 'Satisfy', cursive;
-            font-family: "Shantell Sans", cursive;
-            font-family: "Gochi Hand", cursive;
-            font-family: "Chelsea Market", system-ui;
-            font-family: "Patrick Hand SC", cursive;
-            font-family: "Boogaloo", sans-serif;
-            font-family: "Merienda", cursive;
-            font-family: "Mansalva", sans-serif;
+    body {
+        margin: 0;
+        font-family: 'Gochi Hand', cursive;
+        background-image: url("fondo.avif");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        color: #000;
+    }
 
-        }
+    h1 {
+        font-family: 'Shantell Sans', cursive;
+        font-size: 3rem;
+        color: #800020;
+        font-weight: 600;
+        text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2);
+        margin: 20px 20px 10px 20px;
+        text-align: left;
+    }
 
+    .subtitle {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        margin: 10px 20px;
+        line-height: 1.6;
+        text-align: left;
+    }
 
-        body {
-            margin: 0;
-            background-image: url("fondo.avif");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
-        }
+    h3 {
+        font-family: 'Gochi Hand', cursive;
+        font-size: 1.2rem;
+        color: #808080;
+        margin: 10px 20px;
+        text-align: right;
+    }
 
-        .subtitle {
-            font-size: 1.8rem;
-            color: #000000;
-            margin-top: -50px;
-            font-family: "Gochi Hand", cursive;
-            letter-spacing: 4px;
-            text-align: left;
-            /* ← izquierda */
+    h4 {
+        font-family: 'Mansalva', sans-serif;
+        font-size: 2.5rem;
+        color: #800020;
+        text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        margin: 20px 0;
+    }
 
-            margin-left: 60px;
-            /* separación del borde */
-            margin-right: 60px;
-            /* aire a la derecha */
-        }
+    .linea-roja {
+        width: 80%;
+        height: 3px;
+        border-bottom: 3px dashed #800020;
+        margin: 10px auto;
+    }
 
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .btn {
+        padding: 10px 22px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 35px;
+        cursor: pointer;
+        text-decoration: none;
+        color: #000;
+        background-color: #d3d3d3;
+        border: 3px solid #800020;
+        transition: 0.3s;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
         h1 {
-            margin-top: 20px;
-            font-family: "Shantell Sans", cursive;
-            font-size: 3rem;
-            /* más chico (antes 5rem) */
-            color: #800020;
-            font-weight: 620;
-            /* más ancho/grueso */
-            text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2);
-            text-align: left;
-            /* ← aquí */
-            margin-left: 60px;
-            /* separación del borde */
-            margin-right: 60px;
-            /* aire a la derecha */
-        }
-
-        h4 {
-            margin-top: -15px;
-            font-family: "Mansalva", sans-serif;
-            font-size: 4rem;
-            color: #800020;
-            font-weight: 1000;
-            text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2);
-
+            font-size: 2rem;
             text-align: center;
         }
-
+        .subtitle {
+            font-size: 1.1rem;
+            text-align: justify;
+            margin: 10px;
+        }
         h3 {
-            margin-top: -15px;
-            font-size: 1.5rem;
-            color: #808080;
-            font-family: "Gochi Hand", cursive;
-            letter-spacing: 4px;
-            /* ← aquí */
-            margin-left: 30px;
-            margin-left: 60px;
-            /* separación del borde */
-            margin-right: 60px;
-            /* aire a la derecha */
-            text-align: right;
-        }
-
-        .linea-roja {
-            width: 2000px;
-            height: 4px;
-            border-bottom: 3px dashed #800020;
-            margin: 6px auto 0;
-            margin-top: -20px;
-        }
-
-        .botones {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .content-move {
-            transform: translateY(-40px);
-            /* 🔼 sube textos + botones */
-        }
-
-        .xoxo-special {
-            background-color: #d3d3d3;
-            color: #000000;
-            border: 3px solid #800020;
-            font-family: "Shantell Sans", cursive;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-
-            padding: 10px 22px;
-            min-width: 165px;
             font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-
-            border-radius: 35px;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
-
-        .btn:link,
-        .btn:visited {
-            color: #000000;
-            text-decoration: none;
+        h4 {
+            font-size: 2rem;
         }
-
-        .boton-abajo {
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
+        .linea-roja {
+            width: 90%;
         }
-
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            margin-top: -80px;
-            /* ↓ antes 40px, ahora más arriba */
-            margin-bottom: 20px;
-            /* espacio inferior */
+        .btn {
+            padding: 8px 16px;
+            font-size: 0.9rem;
         }
-    </style>
+    }
+</style>
 </head>
 
 <body>
@@ -196,3 +144,4 @@
 
 
 </html>
+
