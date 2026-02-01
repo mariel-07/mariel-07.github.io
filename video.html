@@ -47,11 +47,20 @@ html, body {
     margin-bottom: 20px;
 }
 
-.video-marco iframe {
+.video-wrapper {
+    position: relative;
     width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 ratio */
+    padding-top: 56.25%; /* 16:9 */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border: none;
+    border-radius: 8px;
 }
 
 .tema {
@@ -100,10 +109,14 @@ html, body {
 <div class="container">
     <h2 class="subtitle">this song reminds me of you ♡♡♡</h2>
 
-    <div class="video-marco">
-        <iframe src="https://www.youtube.com/embed/eOPSD8pr2r8" allowfullscreen></iframe>
+   <div class="video-marco">
+    <div class="video-wrapper">
+        <iframe 
+            src="https://www.youtube.com/embed/eOPSD8pr2r8"
+            allowfullscreen>
+        </iframe>
     </div>
-
+</div>
     <h2 class="tema">Colde - Star (See You in My 19th Life OST)</h2>
     <div class="linea-roja"></div>
     <h2 class="song">Song About You</h2>
@@ -112,3 +125,4 @@ html, body {
 </div>
 </body>
 </html>
+
