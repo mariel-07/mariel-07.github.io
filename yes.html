@@ -19,145 +19,134 @@
             font-family: "Shantell Sans", cursive;
         }
 
+body {
+    margin: 0;
+    background-image: url("fondo.avif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Shantell Sans", cursive;
+}
 
-        body {
-            margin: 0;
-            background-image: url("fondo.avif");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
-        }
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: -1;
+}
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.25);
-            z-index: -1;
-        }
+h1 {
+    margin-top: 50px;
+    font-size: 3rem;
+    color: #800020;
+    font-weight: 620;
+    text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    white-space: nowrap;
+}
 
+.subtitle {
+    font-size: 1.2rem;
+    color: #D3D3D3;
+    margin-top: -20px;
+    font-family: "Gochi Hand", cursive;
+    letter-spacing: 3px;
+}
 
-        h1 {
-            margin-top: 50px;
-            font-family: "Shantell Sans", cursive;
-            font-size: 3rem;
-            /* más chico (antes 5rem) */
-            color: #800020;
-            font-weight: 620;
-            /* más ancho/grueso */
-            text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            /* centrado */
-            white-space: nowrap;
-        }
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    padding-bottom: 140px;
+    text-align: center;
+}
 
+/* Botones e imágenes */
+.botones-img {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
 
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            padding-bottom: 140px;
-            /* 💥 ESTE ES EL ARREGLO */
-            text-align: center;
-        }
+.img-btn img {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    border-radius: 35px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+    border: 8px solid #800020;
+}
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: #D3D3D3;
-            margin-top: -20px;
-            font-family: "Gochi Hand", cursive;
-            letter-spacing: 3px;
+.img-btn:hover img {
+    transform: scale(1.05);
+}
 
-        }
+.botones {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
 
-        .botones-img {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2px;
-            justify-items: center;
-        }
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 22px;
+    min-width: 165px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: #000;
+}
 
-        .img-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
+.xoxo-special {
+    background-color: #d3d3d3;
+    border: 3px solid #800020;
+}
 
-        .img-btn img {
-            width: 240px;
-            height: 240px;
-            border-radius: 35px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-            transition: 0.3s;
-            border: 8px solid #800020;
-            /* marco rojo */
-        }
+/* 👇 MEDIA QUERIES PARA MÓVILES */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+        margin-top: 30px;
+    }
 
-        .img-btn:hover img {
-            transform: scale(1.1);
-        }
+    .subtitle {
+        font-size: 1rem;
+        letter-spacing: 1.5px;
+        margin-top: -10px;
+    }
 
-        .botones {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-            /* separación desde las imágenes */
-            margin-bottom: -120px;
-            /* espacio abajo */
-        }
+    .botones-img {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+        gap: 15px;
+    }
 
-        .content-move {
-            transform: translateY(-40px);
-            /* 🔼 sube textos + botones */
-        }
+    .img-btn img {
+        max-width: 90%; /* Ajusta al tamaño de la pantalla */
+        height: auto;
+    }
 
-        .xoxo-special {
-            background-color: #d3d3d3;
-            color: #000000;
-            border: 3px solid #800020;
-            font-family: "Shantell Sans", cursive;
-        }
+    .container {
+        padding-bottom: 100px;
+    }
 
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-
-            padding: 10px 22px;
-            min-width: 165px;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-
-            border-radius: 35px;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn:link,
-        .btn:visited {
-            color: #000000;
-            text-decoration: none;
-        }
-
-        .boton-abajo {
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-        }
-
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 0px;
-            /* ↓ antes 40px, ahora más arriba */
-            margin-bottom: 0px;
-            /* espacio inferior */
-        }
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 18px;
+        min-width: 140px;
+    }
+}
     </style>
 </head>
 
@@ -179,4 +168,5 @@
 
 
 </html>
+
 
