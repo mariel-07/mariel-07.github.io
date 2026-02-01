@@ -56,11 +56,12 @@
     }
 
     .linea-roja {
-        width: 80%;
-        height: 3px;
-        border-bottom: 3px dashed #800020;
-        margin: 10px auto;
-    }
+    width: 80%;          /* ocupa el 80% del contenedor */
+    max-width: 400px;    /* nunca más de 400px de ancho */
+    height: 3px;
+    border-bottom: 3px dashed #800020;
+    margin: 10px auto;   /* centrado automáticamente */
+}
 
     .btn-container {
         display: flex;
@@ -106,7 +107,13 @@
         .btn {
             padding: 8px 16px;
             font-size: 0.9rem;
+            
         }
+        @media (max-width: 480px) {
+    .linea-roja {
+        width: 90%;      /* ocupa más espacio en pantallas muy pequeñas */
+        max-width: none; /* eliminar límite si se necesita */
+    }
     }
 </style>
 </head>
@@ -144,4 +151,5 @@
 
 
 </html>
+
 
