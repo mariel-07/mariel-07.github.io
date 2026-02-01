@@ -1,1 +1,197 @@
-<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <title>tercera Pantalla</title> <style> @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap'); @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap'); @import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap'); body { margin: 0; padding: 0; background-image: url("fondo.avif"); background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed; } .container { max-width: 900px; /* limita el ancho en pantallas grandes */ margin: 0 auto; /* centra horizontalmente */ padding: 10px 20px; /* espacio interno */ } h1, h2, h3, h4 { margin-top: 0; margin-bottom: 10px; } h1 { font-family: 'Shantell Sans', cursive; font-size: 3rem; color: #800020; font-weight: 600; text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2); margin: 20px 20px 10px 20px; text-align: left; } .subtitle { font-size: 1.5rem; letter-spacing: 1px; margin: 10px 20px; line-height: 1.6; text-align: left; } h3 { font-family: 'Gochi Hand', cursive; font-size: 1.2rem; color: #808080; margin: 10px 20px; text-align: right; } h4 { font-family: 'Mansalva', sans-serif; font-size: 2.5rem; color: #800020; text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2); text-align: center; margin: 20px 0; } .linea-roja { width: 80%; /* ocupa el 80% del contenedor */ max-width: 400px; /* nunca más de 400px de ancho */ height: 3px; border-bottom: 3px dashed #800020; margin: 10px auto; /* centrado automáticamente */ } .btn-container { display: flex; justify-content: center; margin: 20px 0; } .btn { padding: 10px 22px; font-size: 1rem; font-weight: 600; border-radius: 35px; cursor: pointer; text-decoration: none; color: #000; background-color: #d3d3d3; border: 3px solid #800020; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.2); } /* RESPONSIVE */ @media (max-width: 768px) { h1 { font-size: 2rem; text-align: center; } .subtitle { font-size: 1.1rem; text-align: justify; margin: 10px; } h3 { font-size: 1rem; text-align: center; } h4 { font-size: 2rem; } .linea-roja { width: 90%; } .btn { padding: 8px 16px; font-size: 0.9rem; } @media (max-width: 480px) { .linea-roja { width: 90%; /* ocupa más espacio en pantallas muy pequeñas */ max-width: none; /* eliminar límite si se necesita */ } } </style> </head> <body> <div class="container"> <h1>FOR MY PRECIOUS LOVE</h1> <h2 class="subtitle"> No soy de andar diciendo muchas cosas lindas todo el tiempo, pero hay algo que necesitaba escribirte: me importas mucho. Me gusta cómo estamos juntos, cómo podemos reírnos de tonterías, o simplemente quedarnos en silencio sin que sea incómodo. Contigo todo se siente más fácil.<br> Me gusta que seas tú, con tus cosas buenas y tus locuras, y que me dejes ser yo también sin pretender nada. Gracias por estar en los días complicados y por hacer que los días buenos se sientan aún mejores. No sé si lo notas, pero tu presencia me da tranquilidad, y eso es algo que no se encuentra todos los días.<br> A veces me sorprendo pensando en lo mucho que me haces feliz, en lo mucho que me gusta compartir mi tiempo contigo, incluso en cosas simples. No necesito palabras grandiosas para decirlo: te quiero, y eso es suficiente.<br> Gracias por ser como eres, por tu paciencia, por tus abrazos cuando más los necesito, y por hacer que incluso los días aburridos tengan un poquito de magia. <br> Te amo, mi niño, y más de lo que piensas.</h2> </h2> <h3>TO: My love<br>FROM: Dulce</h3> <div class="linea-roja"></div> <h4>Message for my love</h4> <div class="btn-container"> <a href="yes.html" class="btn xoxo-special">RETURN</a> </div> </div> </body> </html>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>tercera Pantalla</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Gochi+Hand&family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');
+
+        body {
+            font-family: 'Satisfy', cursive;
+            font-family: "Shantell Sans", cursive;
+            font-family: "Gochi Hand", cursive;
+            font-family: "Chelsea Market", system-ui;
+            font-family: "Patrick Hand SC", cursive;
+            font-family: "Boogaloo", sans-serif;
+            font-family: "Merienda", cursive;
+            font-family: "Mansalva", sans-serif;
+
+        }
+
+
+        body {
+            margin: 0;
+            background-image: url("fondo.avif");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #000000;
+            margin-top: -50px;
+            font-family: "Gochi Hand", cursive;
+            letter-spacing: 4px;
+            text-align: left;
+            /* ← izquierda */
+
+            margin-left: 60px;
+            /* separación del borde */
+            margin-right: 60px;
+            /* aire a la derecha */
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-family: "Shantell Sans", cursive;
+            font-size: 3rem;
+            /* más chico (antes 5rem) */
+            color: #800020;
+            font-weight: 620;
+            /* más ancho/grueso */
+            text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            /* ← aquí */
+            margin-left: 60px;
+            /* separación del borde */
+            margin-right: 60px;
+            /* aire a la derecha */
+        }
+
+        h4 {
+            margin-top: -15px;
+            font-family: "Mansalva", sans-serif;
+            font-size: 4rem;
+            color: #800020;
+            font-weight: 1000;
+            text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2);
+
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: -15px;
+            font-size: 1.5rem;
+            color: #808080;
+            font-family: "Gochi Hand", cursive;
+            letter-spacing: 4px;
+            /* ← aquí */
+            margin-left: 30px;
+            margin-left: 60px;
+            /* separación del borde */
+            margin-right: 60px;
+            /* aire a la derecha */
+            text-align: right;
+        }
+
+        .linea-roja {
+            width: 2000px;
+            height: 4px;
+            border-bottom: 3px dashed #800020;
+            margin: 6px auto 0;
+            margin-top: -20px;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .content-move {
+            transform: translateY(-40px);
+            /* 🔼 sube textos + botones */
+        }
+
+        .xoxo-special {
+            background-color: #d3d3d3;
+            color: #000000;
+            border: 3px solid #800020;
+            font-family: "Shantell Sans", cursive;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            padding: 10px 22px;
+            min-width: 165px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+
+            border-radius: 35px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:link,
+        .btn:visited {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .boton-abajo {
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: -80px;
+            /* ↓ antes 40px, ahora más arriba */
+            margin-bottom: 20px;
+            /* espacio inferior */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1> FOR MY PRECIOUS LOVE</h1>
+        <div class="container">
+            <h2 class="subtitle"><br>
+                No soy de andar diciendo muchas cosas lindas todo el tiempo, pero hay algo que necesitaba escribirte: me
+                importas mucho. Me gusta cómo estamos juntos, cómo podemos reírnos de tonterías, o simplemente quedarnos
+                en silencio sin que sea incómodo. Contigo todo se siente más fácil.<br>
+
+                Me gusta que seas tú, con tus cosas buenas y tus locuras, y que me dejes ser yo también sin pretender
+                nada. Gracias por estar en los días complicados y por hacer que los días buenos se sientan aún mejores.
+                No sé si lo notas, pero tu presencia me da tranquilidad, y eso es algo que no se encuentra todos los
+                días.<br>
+
+                A veces me sorprendo pensando en lo mucho que me haces feliz, en lo mucho que me gusta compartir mi
+                tiempo contigo, incluso en cosas simples. No necesito palabras grandiosas para decirlo: te quiero, y eso
+                es suficiente.<br>
+
+                Gracias por ser como eres, por tu paciencia, por tus abrazos cuando más los necesito, y por hacer que
+                incluso los días aburridos tengan un poquito de magia. <br>
+                Te amo, mi niño, y más de lo que piensas.</h2>
+            <div class="container">
+                <h3> TO: My love<br>FROM: Dulce</h3>
+                <div class="linea-roja"></div>
+                <h4> Message for my love</h4>
+
+                <div class="btn-container">
+                    <a href="yes.html" class="btn xoxo-special">RETURN</a>
+                </div>
+</body>
+
+</html>
