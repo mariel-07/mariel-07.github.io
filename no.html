@@ -1,7 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <title>segunda Pantalla</title>
+    <title>Segunda Pantalla</title>
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300..800&display=swap');
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-image: url("fondo.avif");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+
+            font-family: "Shantell Sans", cursive;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+            font-size: 3rem;
+            color: #800020;
+            font-weight: 620;
+            text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 12px 26px;
+            min-width: 165px;
+
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+
+            border-radius: 35px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            text-decoration: none;
+            color: #000;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .xoxo-special {
+            background-color: #d3d3d3;
+            border: 3px solid #800020;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>I promise you'll like it</h1>
+
+        <div class="btn-container">
+            <a href="index.html" class="btn xoxo-special">RETURN</a>
+        </div>
+    </div>
+</body>
+</html>
