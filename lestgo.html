@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Segunda Pantalla</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Gochi+Hand&family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+        body {
+            font-family: 'Satisfy', cursive;
+            font-family: "Gochi Hand", cursive;
+            font-family: "Chelsea Market", system-ui;
+            font-family: "Patrick Hand SC", cursive;
+            font-family: "Shantell Sans", cursive;
+        }
+
+body {
+    margin: 0;
+    background-image: url("fondo.avif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Shantell Sans", cursive;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: -1;
+}
+
+h1 {
+    margin-top: 0px;
+    font-size: 3rem;
+    color: #800020;
+    font-weight: 620;
+    text-shadow: 2px 5px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #D3D3D3;
+    margin-top: -20px;
+    font-family: "Gochi Hand", cursive;
+    letter-spacing: 3px;
+
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+.h3 {
+    
+    font-size: 1.2rem;
+    color: #D3D3D3;
+    margin-top: 70px;
+    font-family: "Gochi Hand", cursive;
+    letter-spacing: 3px;
+
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+
+.container {
+    max-width: 600px;
+    margin: 120px auto;  /* espacio arriba */
+    padding: 20px;
+    padding-bottom: 140px;
+    text-align: center;
+}
+/* Barra superior */
+.top-menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    padding: 15px 0;
+
+    background: rgba(255,255,255,0.2); /* transparente */
+    backdrop-filter: blur(6px);
+
+    border-bottom: 3px solid #800020;
+}
+
+/* Botones */
+.top-menu a{
+    padding: 8px 20px;
+
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    background: transparent;
+
+    transition: 0.3s;
+}
+.top-menu a:hover{
+    color:#800020;
+    border-bottom: 2px solid #800020;
+}
+/* dropdown */
+.dropdown{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 30px;
+    
+    background: transparent;  /* fondo transparente */
+    
+    border: none;
+    padding: 10px;
+    min-width: 150px;
+}
+
+.dropdown-content a{
+    display: block;
+    padding: 6px;
+    color: rgb(48, 48, 48);
+    text-decoration: none;
+}
+
+.dropdown-content a:hover{
+    background: rgba(128,0,32,0.2);
+}
+
+/* mostrar menu */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.left-img{
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 200px; /* tamaño de la imagen */
+}
+.right-img{
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 200px; /* tamaño de la imagen */
+}
+ </style>
+</head>
+
+<body>  
+    <div class="container">
+        <h1> Bienvenido , Jaret </h1>
+        <h2 class="subtitle">Esta pagina web es para los recuerdos de cada mes que pasemos juntos ,cada mes un dia tan  especial se actualizara. A traves de todo seguimos juntos siempre mas fuertes.
+        </br>Te amare ayer ,hoy, mañana y siempren </h2>
+        <h3 class="h3">Nuestro amor no se trata de cuantos dias o meses hemos estado juntos, se trata de cuanto nos amamos cada dia
+            </br>
+            </br>
+            </br>
+            Por siempre y para siempre tuya 
+        </h3>
+        
+        </div>
+<img src="cat.gif" class="left-img">
+<img src="cat02.gif" class="right-img">
+
+<div class="top-menu">
+    <a href="">HOME</a>
+    <a href="photo.html">MEMORIES</a>
+    <a href="flores.html">GALERY</a>
+    <div class="dropdown">
+    <a href="#">MESSAGE</a>
+    <div class="dropdown-content">
+        <a href="msg1.html">Mes 1</a>
+        <a href="msg2.html">Mes 2</a>
+        <a href="msg3.html">Mes 3</a>
+        <a href="msg4.html">Mes 4</a>
+        <a href="msg5.html">Mes 5</a>
+        <a href="msg6.html">Mes 6</a>
+        <a href="msg7.html">Mes 7</a>
+        <a href="msg8.html">Mes 8</a>
+        <a href="msg9.html">Mes 9</a>
+        <a href="msg10.html">Mes 10</a>
+        <a href="msg11.html">Mes 11</a>
+        <a href="msg12.html">Mes 12</a>
+    </div>
+</div>
+    <a href="video.html">VIDEO</a>
+</div>
