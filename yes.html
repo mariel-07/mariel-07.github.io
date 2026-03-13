@@ -114,39 +114,39 @@ h1 {
     border: 3px solid #800020;
 }
 
-/* 👇 MEDIA QUERIES PARA MÓVILES */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2rem;
-        margin-top: 30px;
-    }
 
-    .subtitle {
-        font-size: 1rem;
-        letter-spacing: 1.5px;
-        margin-top: -10px;
-    }
+    /* Botón vertical al costado */
+.letgo-btn{
+    position: fixed;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background: white;
+    color: black;
 
-    .botones-img {
-        grid-template-columns: 1fr; /* Una columna en móviles */
-        gap: 15px;
-    }
+    border: 3px solid #800020;
 
-    .img-btn img {
-        max-width: 90%; /* Ajusta al tamaño de la pantalla */
-        height: auto;
-    }
+    padding: 60px 12px; /* controla el largo */
+    
+    border-radius: 15px 0 0 15px;
 
-    .container {
-        padding-bottom: 100px;
-    }
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
 
-    .btn {
-        font-size: 0.9rem;
-        padding: 8px 18px;
-        min-width: 140px;
-    }
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+
+    box-shadow: -4px 6px 12px rgba(0,0,0,0.3);
+    transition: 0.3s;
 }
+
+.letgo-btn:hover{
+    background:#800020;
+    color:white;
+}
+
     </style>
 </head>
 
@@ -164,6 +164,12 @@ h1 {
 
         <div class="botones">
             <a href="index.html" class="btn xoxo-special">RETURN</a>
+            </div>
+
+            
+      <a href="lestgo.html" class="letgo-btn">LEST GO</a>      
+            
+           
 </body>
 
 
