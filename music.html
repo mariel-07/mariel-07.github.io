@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reproductor 3D Estilizado</title>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Gochi+Hand&family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+        body {
+            font-family: 'Satisfy', cursive;
+            font-family: "Gochi Hand", cursive;
+            font-family: "Chelsea Market", system-ui;
+            font-family: "Patrick Hand SC", cursive;
+            font-family: "Shantell Sans", cursive;
+        }
+      /* 1. CONFIGURACIÓN GLOBAL Y FONDO (sin cambios) */
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("fondo.avif"); /* Asegúrate que el nombre sea correcto */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: "Segoe UI", sans-serif;
+        overflow: hidden;
+        
+      }
+
+      /* --- MEJORA VISUAL DEL FONDO --- */
+      #bg-overlay {
+        position: fixed;
+        inset: 0;
+
+        /* capa oscura suave */
+        background: rgba(0, 0, 0, 0.45);
+
+        /* efecto degradado para que no se vea plano */
+        background: linear-gradient(
+          rgba(0, 0, 0, 0.55),
+          rgba(0, 0, 0, 0.35),
+          rgba(0, 0, 0, 0.55)
+        );
+
+        /* desenfoque ligero del fondo para estilo moderno */
+        backdrop-filter: blur(3px);
+
+        z-index: -1;
+
+        /* transición suave cuando cambie el color del overlay */
+        transition: background 0.8s ease;
+      }
+      /* 2. ESTRUCTURA PRINCIPAL (sin cambios) */
+      .player-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 80px;
+        width: 95%;
+        max-width: 1200px;
+        z-index: 1;
+      }
+
+      .playlist-header {
+        text-align: left;
+        flex: 1;
+      }
+
+      .playlist-header h2 {
+        color: #ffffff;
+        font-size: 3.5rem;
+        margin: 0;
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        font-family: "Shantell Sans", cursive;
+         margin-left: 90px; 
+           
+      }
+
+      .playlist-header p {
+        color: #e0e0e0;
+        font-size: 1.9rem;
+        margin-top: 10px;
+         font-family: "Gochi Hand", cursive;
+      }
+
+      /* 3. SECCIÓN DEL REPRODUCTOR (modificada) */
+      .carousel-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .carousel {
+        position: relative;
+        height: 380px;
+        width: 100%;
+        perspective: 1200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        position: absolute;
+        /* SE HA REDUCIDO UN POCO EL ANCHO PARA UN DISEÑO MÁS PEQUEÑO */
+        width: 390px;
+        /* SE HA REDUCIDO LA ALTURA PARA UN DISEÑO MÁS COMPACTO */
+        height: auto;
+        border-radius: 25px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        overflow: hidden;
+        cursor: pointer;
+        display: flex; /* convierte la tarjeta en contenedor flexible */
+        flex-direction: column; /* coloca la imagen arriba y el contenido abajo */
+      }
+
+      card img {
+        width: 100%;
+        height: 90px; /* altura fija de la imagen */
+        display: block; /* elimina pequeños espacios que pueden aparecer debajo de imágenes */
+      }
+
+      /* --- CONTENIDO DE LA TARJETA (TEXTO) --- */
+      .card-content {
+        padding: 10px 15px; /* se agrega padding real para que el texto no quede pegado */
+        background: rgba(0, 0, 0, 0.6); /* fondo negro transparente */
+        flex: 1; /* ocupa solo el espacio necesario */
+      }
+
+      /* --- TÍTULO DE LA CANCIÓN --- */
+      .card-content h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #ffffff; /* texto blanco */
+      }
+
+      /* --- NOMBRE DEL ARTISTA --- */
+      .card-content p {
+        margin: 4px 0 0;
+        font-size: 0.9rem;
+        color: #e0e0e0;
+         /* gris claro */
+      }
+
+      /* Efectos 3D del Carrusel (sin cambios) */
+      .card.active {
+        transform: translateZ(150px);
+        z-index: 10;
+        opacity: 1;
+      }
+      .card.prev {
+        transform: translateX(-180px) scale(0.7) rotateY(20deg);
+        z-index: 5;
+        opacity: 0.5;
+      }
+      .card.next {
+        transform: translateX(180px) scale(0.7) rotateY(-20deg);
+        z-index: 5;
+        opacity: 0.5;
+      }
+      .card.hidden {
+        transform: scale(0.5) translateZ(-200px);
+        opacity: 0;
+      }
+
+      /* 4. SECCIÓN DE CONTROLES (sin cambios) */
+      .controls-box {
+        background: white;
+        width: 380px;
+        padding: 25px;
+        border-radius: 25px;
+        margin-top: -10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1;
+      }
+
+      .progress-container {
+        width: 100%;
+        height: 5px;
+        background: #eee;
+        border-radius: 10px;
+        margin-bottom: 8px;
+        cursor: pointer;
+      }
+
+      #progress-bar {
+        width: 0%;
+        height: 100%;
+        background: #b19db1; /* Color lila suave */
+        border-radius: 10px;
+        transition: width 0.1s linear;
+      }
+
+      .time-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: #bbb;
+        margin-bottom: 15px;
+      }
+
+      .controls {
+        display: flex;
+        gap: 35px;
+        align-items: center;
+      }
+
+      .controls button {
+        background: none;
+        border: none;
+        color: #b19db1;
+        font-size: 1.6rem;
+        cursor: pointer;
+        transition: 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .controls button:hover {
+        transform: scale(1.1);
+        color: #8a768a;
+      }
+      .play-btn {
+        font-size: 2.5rem !important;
+      }
+
+      /* Adaptabilidad para móviles (sin cambios) */
+      @media (max-width: 850px) {
+        .player-container {
+          flex-direction: column;
+          text-align: center;
+          gap: 40px;
+        }
+        .playlist-header {
+          text-align: center;
+        }
+        .playlist-header h2 {
+          font-size: 2.5rem;
+        }
+        .card {
+          width: 300px;
+          height: 180px;
+        }
+        .controls-box {
+          width: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bg-overlay"></div>
+
+    <div class="player-container">
+      <div class="playlist-header">
+        <h2 id="current-title">Cargando...</h2>
+        <p id="current-artist">Selecciona una canción</p>
+      </div>
+
+      <div class="carousel-section">
+        <div class="carousel" id="carousel">
+          <div
+            class="card"
+            data-bg="rgba(11, 44, 77, 0.6)"
+            data-title="Playlist"
+            data-artist="Canciones que me recuerdan a ti"
+            data-src="Taylor Swift - Daylight (Official Audio).mp3"
+          >
+            <img src="images.jpg" alt="Cover" />
+            <div class="card-content">
+              <h3>Daylight</h3>
+              <p>Taylor Swift</p>
+            </div>
+          </div>
+          <div
+            class="card"
+            data-bg="rgba(77, 20, 20, 0.6)"
+            data-title="Playlist"
+            data-artist="Canciones que me recuerdan a ti"
+            data-src="Taylor Swift - Love Story (Taylor's Version)sub. español  letra lyrics.mp3"
+          >
+            <img src="lovestory.jpg" alt="Cover" />
+            <div class="card-content">
+              <h3>Love Story</h3>
+              <p>Taylor Swift</p>
+            </div>
+          </div>
+          <div
+            class="card"
+            data-bg="rgba(20, 77, 44, 0.6)"
+            data-title="Playlist"
+            data-artist="Canciones que me recuerdan a ti"
+            data-src="Taylor Swift - So High School (Sub. Español).mp3"
+          >
+            <img src="sohight.jpg" alt="Cover" />
+            <div class="card-content">
+              <h3>So Hight School</h3>
+              <p>Taylor Swift</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls-box">
+          <div class="progress-container" id="progress-clickable">
+            <div id="progress-bar"></div>
+          </div>
+          <div class="time-info">
+            <span id="current-time">0:00</span>
+            <span id="total-duration">0:00</span>
+          </div>
+          <div class="controls">
+            <button id="prev">◁</button>
+            <button id="play" class="play-btn">▶</button>
+            <button id="next">▷</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <audio id="main-audio"></audio>
+
+    <script>
+      const cards = document.querySelectorAll(".card");
+      const nextBtn = document.getElementById("next");
+      const prevBtn = document.getElementById("prev");
+      const playBtn = document.getElementById("play");
+      const audio = document.getElementById("main-audio");
+      const progressBar = document.getElementById("progress-bar");
+      const progressArea = document.getElementById("progress-clickable");
+      const overlay = document.getElementById("bg-overlay");
+      const titleText = document.getElementById("current-title");
+      const artistText = document.getElementById("current-artist");
+      const timeCurr = document.getElementById("current-time");
+      const timeTotal = document.getElementById("total-duration");
+
+      let currentIndex = 0;
+      let isPlaying = false;
+
+      function formatTime(s) {
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60);
+        return `${m}:${sec < 10 ? "0" : ""}${sec}`;
+      }
+
+      function updateCarousel() {
+        cards.forEach((card, index) => {
+          card.classList.remove("active", "prev", "next", "hidden");
+
+          if (index === currentIndex) {
+            card.classList.add("active");
+            overlay.style.background = card.getAttribute("data-bg");
+            titleText.innerText = card.getAttribute("data-title");
+            artistText.innerText = card.getAttribute("data-artist");
+
+            const songSrc = card.getAttribute("data-src");
+            // Solo cambia el src si es una canción distinta
+            if (!audio.src.includes(songSrc)) {
+              audio.src = songSrc;
+              if (isPlaying) audio.play();
+            }
+          } else if (
+            index ===
+            (currentIndex - 1 + cards.length) % cards.length
+          ) {
+            card.classList.add("prev");
+          } else if (index === (currentIndex + 1) % cards.length) {
+            card.classList.add("next");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+      }
+
+      // Lógica de Reproducción
+      playBtn.addEventListener("click", () => {
+        if (isPlaying) {
+          audio.pause();
+          playBtn.innerHTML = "▶";
+        } else {
+          audio.play();
+          playBtn.innerHTML = "⏸";
+        }
+        isPlaying = !isPlaying;
+      });
+
+      // Actualizar barra de progreso
+      audio.addEventListener("timeupdate", () => {
+        if (audio.duration) {
+          const p = (audio.currentTime / audio.duration) * 100;
+          progressBar.style.width = `${p}%`;
+          timeCurr.innerText = formatTime(audio.currentTime);
+          timeTotal.innerText = formatTime(audio.duration);
+        }
+      });
+
+      // Click en la barra para saltar tiempo
+      progressArea.addEventListener("click", (e) => {
+        const width = progressArea.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+      });
+
+      // Botones Siguiente y Anterior
+      nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCarousel();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCarousel();
+      });
+
+      // Click directo en tarjeta
+      cards.forEach((card, index) => {
+        card.addEventListener("click", () => {
+          currentIndex = index;
+          updateCarousel();
+        });
+      });
+
+      // Iniciar el carrusel al cargar
+      updateCarousel();
+    </script>
+  </body>
+</html>
